@@ -32,9 +32,9 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 **yes** 1 pt: The `Passenger` class uses appropriate methods from the `Car` class to implement its `boardCar(...)` and `getOffCar(...)` methods
 
-**part** 1 pt: The `Train` class has all expected attributes / relationships with the other classes
+**yes** 1 pt: The `Train` class has all expected attributes / relationships with the other classes
 
-**part** 1 pt: The `Train` class has all expected methods, making use of methods from other classes as appropriate
+**yes** 1 pt: The `Train` class has all expected methods, making use of methods from other classes as appropriate
 
 
 
