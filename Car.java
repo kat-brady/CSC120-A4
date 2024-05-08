@@ -1,23 +1,43 @@
 import java.util.*;
 
+/*
+ * Car class stores information about the individual cars
+ * Contains int for maxCapacity and ArrayList for passengerList
+ */
 public class Car {
-    //setting attributes
-    public int maxCapacity;
-    public ArrayList<Passenger> passengerList;
+    private int maxCapacity;
+    private ArrayList<Passenger> passengerList;
 
-    //Car constructor
+    /*
+     * Initializes Car
+     * @param int maxCapacity stores maximum number of passengers for the car
+     */
     public Car(int maxCapacity){
         this.maxCapacity= maxCapacity;
         this.passengerList = new ArrayList<Passenger>(maxCapacity);
+    }
 
-}   //method to return capacity
+    /*
+     * Method to return the maximum capacity of the car
+     */
     public int getCapacity(){
         return maxCapacity;
-    }//method to check for number of remaining seats
+    }
+    
+    /*
+     * Method to return the number of seats remaining in the car
+     * Subtracts the number of passengers from maxCapacity to return number of seats remaining
+     */
     public int seatsRemaining(){
         return this.maxCapacity-this.passengerList.size();
     }
-    //method to add passengers
+
+    /*
+     * Method to addPassenger
+     * @param Passenger p: the passenger to be added to the list
+     * Returns false if p is already in passengerList or car is at maxCapacity
+     * Returns true otherwise and adds p to passengerList
+     */
     public boolean addPassenger(Passenger p){
         if (passengerList.contains(p)) {
             System.out.println("Oops! Passenger "+ p.name + " is already on board.");
@@ -31,7 +51,13 @@ public class Car {
             return true;
         }
     }
-    //method to remove passengers
+
+    /*
+     * Method to removePassenger
+     * @param Passenger p : the passenger to be removed
+     * Returns true if p is already in passengerList and removes p from passengerList
+     * Returns false otherwise
+     */
     public boolean removePassenger (Passenger p){
         if (passengerList.contains(p)) {
             System.out.println("Passenger "+ p.name +" is departing the train.");
@@ -42,7 +68,11 @@ public class Car {
             return false;
         }
     }
-    //method to print list of passengers
+
+    /*
+     * Method to printManifest
+     * Prints names of passengers in passengerList
+     */
     public void printManifest(){
         if (passengerList.size() == 0){
             System.out.println("This car is empty!");

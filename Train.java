@@ -1,30 +1,57 @@
 import java.util.*;
-//establishing train
+
+/*
+ * Train class contains attributes for Train
+ * Contains arrayList carList, Engine engine, Car car
+ */
 public class Train {
-    public ArrayList<Car> carList;
-    public Engine engine;
-    public Car car;
+    private ArrayList<Car> carList;
+    private final Engine;
+
+
+    /*
+     * Initializes Train
+     * @param FuelType fuelType : stores type of fuel, contained within Engine
+     * @param double maxCapacity: stores maximum fuel capacity, contained within Engine
+     * @param int car: stores number of car
+     * @param int passengerCapacity: stores maximum number of passengers in a car, contained within car
+     */
     public Train(FuelType fuelType, double maxCapacity, int car, int passengerCapacity) {
         this.engine= new Engine(fuelType, maxCapacity);
         this.car= new Car(passengerCapacity);
         this.carList = new ArrayList<Car>(car);
         }
-    //method to get the engine
+
+    /*
+     * Method to return the engine
+     */
     public Engine getEngine(){
         return engine;
     }
-    //method to get the car
+
+    /*
+     * Method to return car number i from carList
+     * @param int i: the number of the car that is to be returned
+     */
     public Car getCar(int i){
         return carList.get(i);
     }
-    //method to get the maxcapacity
+
+    /*
+     * Method to getMaxCapacity
+     * returns max capacity of all cars combined
+     */
     public int getMaxCapacity(){
         int max = 0;
         for(Car car: this.carList) {
             max+= car.getCapacity();
         } return max;
     }
-    //method to see how many seats remain
+
+    /*
+     * Method to get seatsRemaining
+     * returns the max capacity of all cars minus the number of passengers in the cars
+     */
     public int seatsRemaining() {
         int max = 0;
         for (Car car: this.carList) {
@@ -32,7 +59,11 @@ public class Train {
         }
         return max-car.passengerList.size();
     }
-    //method for total car passenger lists
+
+    /*
+     * Method to printManifest
+     * prints all passengers for all cars
+     */
     public void printManifest() {
         for (Car car: this.carList){
             for (Passenger p: car.passengerList){

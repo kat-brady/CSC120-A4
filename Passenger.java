@@ -1,11 +1,24 @@
+/*
+ * Passenger class stores relevant information about the passengers
+ */
 public class Passenger {
     
     public String name;
-    //constructor
+    
+    /*
+     * Initializes Passenger
+     * @param String name: the name of a passenger
+     */
     public Passenger(String name) {
         this.name = name;
     }
-    // method to board cars
+    
+    /*
+     * Method to boardCar
+     * @param Car c: the specific car to be boarded
+     * Returns false if Car c is full
+     * Else returns true and adds passenger to c
+     */
     public boolean boardCar(Car c) {
         if (c.maxCapacity-c.passengerList.size() == 0){
             System.out.println("The car is full.");
@@ -15,7 +28,13 @@ public class Passenger {
             return true;
         }
     }
-    //method to depart cars
+
+    /*
+     * Method to getOffCar
+     * @param Car c: the car to be departed from
+     * Returns true if passenger is contained in c.passengerList and removes passenger from c
+     * Else returns false
+     */
     public boolean getOffCar(Car c) {
         if (c.passengerList.contains(this)){
             c.removePassenger(this);
